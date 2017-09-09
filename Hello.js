@@ -1,19 +1,24 @@
 import React from 'react';
 import { View, Button, Alert , TextInput} from 'react-native';
 import { connect } from 'react-redux';
-import {mapStateToProps, mapDispatchToProps} from './action.js';
-import { StackNavigator } from 'react-navigation';
+import PropTypes from 'prop-types';
+import { mapStateToProps, mapDispatchToProps } from './action.js';
+import { styles } from './styles.js';
 
 class Hello extends React.Component {
+  static navigationOptions = {
+    title: "ハローワールド"
+  }
+
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <TextInput
           style={{height: 40, width:300, borderColor: 'gray', borderWidth: 1}}
           onChangeText={ (text) => this.props.updateHello(text) }
           value={ this.props.hello } />
 
-          <Button title={ this.props.hello }
+        <Button title={ this.props.hello }
                 onPress={ this._handlePress.bind(this) } />
       </View>
     );
@@ -23,6 +28,10 @@ class Hello extends React.Component {
   _handlePress(e) {
     Alert.alert(this.props.hello);
   }
+}
+
+Hello.propTypes = {
+  hello: PropTypes.string.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Hello);

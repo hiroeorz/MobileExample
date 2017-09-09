@@ -1,31 +1,28 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { createStore } from 'redux';
-import Hello from './Hello.js';
+import { View } from 'react-native';
+import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 import { Provider } from 'react-redux';
-import reducer from './reducer.js';
 
-const store = createStore(reducer);
+import { store } from './store.js';
+import { styles } from './styles.js';
+import Hello from './Hello.js';
+import CheckScreen from './CheckScreen.js';
+import HomeScreen from './HomeScreen.js';
+
+const AppNavigator = StackNavigator({
+  Home: {screen: HomeScreen},
+  Hello: {screen: Hello},
+  Check: {screen: CheckScreen}
+});
 
 class App extends React.Component {
   render() {
     return (
       <Provider store={ store }>
-        <View style={styles.container}>
-          <Hello />
-        </View>
+        <AppNavigator />
       </Provider>
-    );
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 export default App;
