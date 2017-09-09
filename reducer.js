@@ -5,7 +5,7 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch(action.type) {
 
-    /* ツイートを投稿する */
+    /* テキストエリアの内容を state.hello に保存する */
     case 'HELLO_WORLD':
       return {
         ...state,
