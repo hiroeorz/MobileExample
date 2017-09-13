@@ -11,7 +11,7 @@ export function mapDispatchToProps(dispatch) {
       dispatch( {type: 'HELLO_WORLD', hello: text} );
     },
 
-    /* weatherオブジェクトを state.movieListに保存する */
+    /* movieListオブジェクトを state.movieListに保存する */
     updateMoviewList: (movieList) => {
       dispatch( {type: 'MOVIE_LIST', movieList: movieList} )
     }
