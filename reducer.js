@@ -1,5 +1,6 @@
 const initialState = {
-  hello: "Hello World"
+  hello: "Hello World",
+  movieList: { title: "", description: "", movies: [] }
 }
 
 export default function reducer(state = initialState, action) {
@@ -10,6 +11,13 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         hello: action.hello
+      };
+
+    /* ムービー情報をJSONで取得したものを state.movieList に保存する */
+    case 'MOVIE_LIST':
+      return {
+        ...state,
+        movieList: action.movieList
       };
 
     default:

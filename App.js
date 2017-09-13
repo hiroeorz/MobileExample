@@ -8,11 +8,13 @@ import { styles } from './styles.js';
 import Hello from './Hello.js';
 import CheckScreen from './CheckScreen.js';
 import HomeScreen from './HomeScreen.js';
+import HttpScreen from './HttpScreen.js';
 
 const AppNavigator = StackNavigator({
   Home: {screen: HomeScreen},
   Hello: {screen: Hello},
-  Check: {screen: CheckScreen}
+  Check: {screen: CheckScreen},
+  Http: {screen: HttpScreen}
 });
 
 class App extends React.Component {

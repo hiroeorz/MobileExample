@@ -15,6 +15,7 @@ class HomeScreen extends React.Component {
       <View style={styles.container}>
         <Button title="Hello" onPress={ () => navigate('Hello') } />
         <Button title="Check" onPress={ () => navigate('Check') } />
+        <Button title="HTTP API" onPress={ () => navigate('Http') } />
       </View>
     );
   }

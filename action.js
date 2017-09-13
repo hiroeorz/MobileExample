@@ -1,12 +1,19 @@
+import store from './store.js';
+
 export function mapStateToProps(state) {
   return state;
 }
 
 export function mapDispatchToProps(dispatch) {
   return {
-    /* ツイートを投稿する */
+    /* テキストエリアの内容を state.hello に保存する */
     updateHello: (text) => {
       dispatch( {type: 'HELLO_WORLD', hello: text} );
+    },
+
+    /* weatherオブジェクトを state.movieListに保存する */
+    updateMoviewList: (movieList) => {
+      dispatch( {type: 'MOVIE_LIST', movieList: movieList} )
     }
   }
 }
