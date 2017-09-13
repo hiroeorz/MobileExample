@@ -21,7 +21,7 @@ class HttpScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Button title="取得" onPress={ this._handleGetMoviewList.bind(this) } />
+        <Button title="取得" onPress={ this._getMoviewList.bind(this) } />
         <Text>タイトル: { this.props.movieList.title }</Text>
         <Text>説明: { this.props.movieList.description }</Text>
         <Text>ムービー一覧</Text>
@@ -30,7 +30,7 @@ class HttpScreen extends React.Component {
     );
   }
 
-  _handleGetMoviewList(e) {
+  _getMoviewList(e) {
     return fetch('http://facebook.github.io/react-native/movies.json')
       .then((response) => response.json() )
         .then((responseJson) => {
